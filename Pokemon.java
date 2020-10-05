@@ -9,4 +9,10 @@ class Pokemon {
     System.out.println("なまえ" + this.name);
   }
 
+  // コンストラクタの定義
+  Pokemon() {
+    System.out.println("インスタンスが生成されました");
+
+  }
+
 }
