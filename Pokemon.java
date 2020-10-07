@@ -3,29 +3,57 @@
  */
 class Pokemon {
   // 名前を入れる変数を定義
-  public String name;
+  private String name;
   // 分類 を入れる変数を定義
-  public String category;
+  private String category;
   // タイプ を入れる変数を定義
-  public String type;
+  private String type1;
+  // タイプ を入れる変数を定義
+  private String type2;
   // たかさ を入れる変数を定義
-  public double height;
   // おもさ を入れる変数を定義
-  public double weight;
+  private double height, weight;
   // 説明文 を入れる変数を定義
-  public String description;
+  private String description;
 
   // コンストラクタの定義
-  Pokemon(String name, String category, String type, Double height, Double weight, String description) {
+  // タイプが一つだけの時のコンストラクタ
+  Pokemon(String name, String category, String type1, double height, double weight, String description) {
     this.name = name;
     this.category = category;
-    this.type = type;
+    this.type1 = type1;
     this.height = height;
     this.weight = weight;
     this.description = description;
   }
 
-  public void hello() {
-    System.out.println("なまえ:" + this.name);
+  // タイプが 2つの時のコンストラクタ
+  Pokemon(String name, String category, String type1, String type2, double height, double weight, String description) {
+    this(name, category, type1, height, weight, description);
+    this.type2 = type2;
   }
+
+  public String getType2() {
+    return this.type2;
+  }
+
+  public String fullType() {
+    if (this.type2 == null) {
+      return "タイプ:" + this.type1;
+    } else {
+      return "タイプ:" + this.type1 + " " + this.type2;
+    }
+  }
+
+  public void printData() {
+    System.out.println("------------------------");
+    System.out.println("なまえ:" + this.name);
+    System.out.println(this.category + "ポケモン");
+    System.out.println(fullType());
+    System.out.println("たかさ" + this.height + "m");
+    System.out.println("おもさ" + this.weight + "kg");
+    System.out.println(this.description);
+
+  }
+
 }
